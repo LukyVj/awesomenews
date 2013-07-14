@@ -35,7 +35,7 @@
     <p id="repTwo" class="awnser hidden"> So the only solution is to subscribe to our weekly newsletter !</p>
   
   <div id="solution" class="bottom">
-<form name="contact" action="">  
+<form name="contact" action="insert.php" method="post">  
       <fieldset>
         <input type="text" id="mail" name="mail" >
         <input type="submit" id="submit" class="button" name="submit" value="send">
@@ -47,51 +47,6 @@
 <script charset="utf-8" src="http://lab.web-gate.fr/prefixfree.min.js"></script>
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="js/functions.js"></script>
-<script charset="utf-8">
-$(function() {
-  $('.error').hide();
-  $('input.text-input').css({backgroundColor:"#FFFFFF"});
-  $('input.text-input').focus(function(){
-    $(this).css({backgroundColor:"#FFDDAA"});
-  });
-  $('input.text-input').blur(function(){
-    $(this).css({backgroundColor:"#FFFFFF"});
-  });
-
-  $(".button").click(function() {
-		// validate and process form
-		// first hide any error messages
-    $('.error').hide();
-		
-			var email = $("input#mail").val();
-		if (email == "") {
-      $("input#mail").focus();
-      return false;
-    }
-			var dataString = 'email=' + email;
-		//alert (dataString);return false;
-		
-		$.ajax({
-      type: "POST",
-      url: "insert.php",
-      data: dataString,
-      success: function() {
-        $('#contact_form').html("<div id='message'></div>");
-        $('#message').html("<h2>Contact Form Submitted!</h2>")
-        .append("<p>We will be in touch soon.</p>")
-        .hide()
-        .fadeIn(1500, function() {
-          $('#message').append("<img id='checkmark' src='images/check.png' />");
-        });
-      }
-     });
-    return false;
-	});
-});
-runOnLoad(function(){
-  $("input#name").select().focus();
-});
-</script>
 
 </body>
 </html>

@@ -1,9 +1,6 @@
 <?php 
-header location('index.php');
-
-include('config.php');?>
-<?php 
-
+header('Location: thanks.php');
+include('config.php');
 //request
 if (isset($_POST['submit']) && $_POST['mail'] != "") {
 		
